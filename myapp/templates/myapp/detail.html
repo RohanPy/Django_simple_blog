@@ -1,0 +1,26 @@
+{% extends "layout/base.html" %}
+
+{% block title %} {{ datas.title }} {% endblock title %}
+
+{% block content %}
+
+<div class="container-fluid mt-1">
+ <div class="jumbotron bg-white">
+
+    <h1 class="display-4"> {{datas.title}} </h1>
+    <div class="container">
+      <img src=" {{datas.image.url}} " style="height: 390px; width: 390px "  class="img-fluid" alt="">
+
+    </div>
+    <p class="lead"> {{datas.description}} </p>
+    <hr class="my-4">
+    <a href=" {% url 'edit' pk=datas.pk %} ">edit</a>
+    <a href=" {% url 'delete' pk=datas.pk %} ">delete</a>
+   
+    
+  </div>
+</div>
+
+
+  
+{% endblock content %}

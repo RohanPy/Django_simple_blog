@@ -1,0 +1,42 @@
+{% extends "layout/base.html" %}
+
+{% block title %} Home | Page {% endblock title %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+
+    {% for flower in data %}
+      
+  
+    <div class="card w-75 mt-2 mb-2 ">
+        <div class="card-body">
+          <div class="">
+            <img src=" {{flower.image.url}}" class="card-img-top " style="height: 200px; width:200px" alt="">
+          </div>
+          
+          <h5 class="card-title"> {{flower.title}} </h5>
+          <p class="card-text"> {{flower.description|truncatechars:100}} </p>
+          <a href=" {{ flower.get_absolute_url  }} " class="btn btn-primary">Button</a>
+
+          <a href="#" class="text text-dark badge badge-warning"> {{flower.category}} </a>
+
+          {% for tags in flower.tags.all %}
+
+               <a href=" {{tags.get_absolute_url}} " class="text text-info m-auto"> {{tags}} </a>
+          
+          {% endfor %}
+        </div>
+        
+      </div>  
+
+      {% endfor %}
+
+
+</div>
+
+  
+{% endblock content %}
+
+<!-- page pending on 83 -->

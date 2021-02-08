@@ -1,0 +1,58 @@
+{% extends "layout/base.html" %}
+{% block title %} Edit  {% endblock title %}
+
+{% block content %}
+
+
+
+<div class="container">
+    <div class="col-6">
+     <form action="" method="post">
+         {% csrf_token %}
+
+        
+
+
+         <div class="form-group">
+            
+            <label for="title"> {{form.title.label_tag}} </label>
+            {{form.title}}
+
+            {% if form.title.errors %}
+            <div class="alert " role="alert">
+                {% for err in form.title.errors %}
+   
+                   <p class="text text-danger">{{err}}</p>
+   
+                {% endfor %}
+             </div>
+            {% endif %}
+           
+          </div>
+
+          <div class="form-group">
+            <label for="description"> {{form.description.label_tag}} </label>
+            {{form.description}}
+
+            {% if form.description.errors %}
+            <div class="alert " role="alert">
+                {% for err in form.description.errors %}
+   
+                   <p class="text text-danger">{{err}}</p>
+   
+                {% endfor %}
+             </div>
+            {% endif %}
+           
+          </div>
+
+         <input type="submit" class="btn btn-outline-info mt-1">
+
+     </form>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}
